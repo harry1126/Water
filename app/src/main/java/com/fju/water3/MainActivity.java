@@ -55,8 +55,6 @@ public class MainActivity extends AppCompatActivity {
         if(!TextUtils.isEmpty(edMonth.getText().toString())){
             float num = Float.parseFloat(edMonth.getText().toString());
             if(num>=1&&num<=10){
-
-
                 new AlertDialog.Builder(MainActivity.this)
                         .setTitle("每月抄表費用")
                         .setMessage("費用:"+num*7.35)
@@ -65,20 +63,20 @@ public class MainActivity extends AppCompatActivity {
             }else if(num>=11&&num<=30){
                 new AlertDialog.Builder(MainActivity.this)
                         .setTitle("每月抄表費用")
-                        .setMessage("費用:"+num*9.45)
+                        .setMessage("費用:"+(num*9.45-21))
                         .setPositiveButton("Ok",listener)
                         .show();
 
             }else if(num>=31&&num<=50){
                 new AlertDialog.Builder(MainActivity.this)
                         .setTitle("每月抄表費用")
-                        .setMessage("費用:"+num*11.45)
+                        .setMessage("費用:"+(num*11.55-84))
                         .setPositiveButton("Ok",listener)
                         .show();
             }else if(num>51){
                 new AlertDialog.Builder(MainActivity.this)
                         .setTitle("每月抄表費用")
-                        .setMessage("費用:"+num*12.075)
+                        .setMessage("費用:"+(num*12.075-110.25))
                         .setPositiveButton("Ok",listener)
                         .show();
             }
@@ -95,26 +93,25 @@ public class MainActivity extends AppCompatActivity {
             } else if (number >= 21 && number <= 60) {
                 new AlertDialog.Builder(MainActivity.this)
                         .setTitle("隔月抄表費用")
-                        .setMessage("費用:" + number * 9.45)
+                        .setMessage("費用:" + (number * 9.45-42))
                         .setPositiveButton("Ok", listener)
                         .show();
 
             } else if (number >= 61 && number <= 100) {
                 new AlertDialog.Builder(MainActivity.this)
                         .setTitle("隔月抄表費用")
-                        .setMessage("費用:" + number * 11.45)
+                        .setMessage("費用:" + (number * 11.55-168))
                         .setPositiveButton("Ok", listener)
                         .show();
             } else if (number > 101) {
                 new AlertDialog.Builder(MainActivity.this)
                         .setTitle("隔月抄表費用")
-                        .setMessage("費用:" + number * 12.075)
+                        .setMessage("費用:" +(number * 12.075-220.5))
                         .setPositiveButton("Ok", listener)
                         .show();
             }
         }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
