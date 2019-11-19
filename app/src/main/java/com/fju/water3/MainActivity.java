@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                         fee = num*120.75f-110.25f;
                     }
                     Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+                    intent.putExtra("FEE",fee);
                     startActivity(intent);
 //             new AlertDialog.Builder(MainActivity.this)
 //                     .setTitle("每月抄表費用")
@@ -83,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                         fee = number*12.075f-220.5f;
                     }
                     Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+                    intent.putExtra("FEE",fee);
                     startActivity(intent);
 //            new AlertDialog.Builder(MainActivity.this)
 //                    .setTitle("隔月抄表費用")
