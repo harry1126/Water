@@ -53,29 +53,41 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 fee();
-    }
-    public void fee(){
-        DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                reset();
             }
-        };
-        if(!TextUtils.isEmpty(edMonth.getText().toString())){
-                float num = Float.parseFloat(edMonth.getText().toString());
-                float fee = 0;
-                if (num >= 1 && num <= 10) {
-                    fee = num * 7.35f;
-                } else if (num >= 11 && num <= 30) {
-                    fee = num * 9.45f - 21;
-                } else if (num >= 31 && num <= 50) {
-                    fee = num * 11.55f - 84;
-                } else if (num > 51) {
-                    fee = num * 120.75f - 110.25f;
-                }
-                Intent intent = new Intent(MainActivity.this, ResultActivity.class);
-                intent.putExtra(getString(R.string.extra_fee), fee);
-                startActivity(intent);
+            public void fee() {
+                DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        reset();
+                    }
+                };
+                if (!TextUtils.isEmpty(edMonth.getText().toString())) {
+                    float num = Float.parseFloat(edMonth.getText().toString());
+                    float fee = 0;
+                    if(isNext == false) {
+                        if (num >= 1 && num <= 10) {
+                            fee = num * 7.35f;
+                        } else if (num >= 11 && num <= 30) {
+                            fee = num * 9.45f - 21;
+                        } else if (num >= 31 && num <= 50) {
+                            fee = num * 11.55f - 84;
+                        } else if (num > 51) {
+                            fee = num * 120.75f - 110.25f;
+                        }
+                    }else{
+                        if (num >= 1 && num <= 20) {
+                            fee = num * 7.35f;
+                        } else if (num >= 21 && num <= 60) {
+                            fee = num * 9.45f - 21;
+                        } else if (num >= 61 && num <= 100) {
+                            fee = num * 11.55f - 168;
+                        } else if (num > 101) {
+                            fee = num * 12.075f - 220.5f;
+                        }
+                    }
+                    Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+                    intent.putExtra(getString(R.string.extra_fee), fee);
+                    startActivity(intent);
 //             new AlertDialog.Builder(MainActivity.this)
 //                        .setTitle("每月抄表費用")
 //                        .setMessage(getString(R.string.fee)+fee)
